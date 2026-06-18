@@ -1,0 +1,103 @@
+Step 1 - Don't write any code
+
+Think like a Business Analyst first.
+
+Answer this question:
+
+What problem is this program solving?
+
+In one or two sentences.
+
+Warehouse App
+V1.0 - Pallet Locations
+
+The user will need to login to the system
+The user will enter their password
+The system will display an option screen
+
+The user should be able to scan a received purchase order into an available location in the warehouse
+The user should be able to enter a location and check what purchase order is in that location
+The user should be able to move a purchase order from one location to another
+The system should not let someone move goods to a location that is full (raise error)
+The system should suggest the next abvailable location
+
+
+ASSUMPTIONS
+No goods for now, just PO numbers to get
+Assume the warehouse is laid out in a logical order
+
+
+Step 2 - Define the scope
+
+Pretend you're delivering Version 1.0.
+
+Ask yourself:
+
+What is the absolute minimum someone should be able to do for me to call this a warehouse scanner simulator?
+
+Not everything a warehouse can do.
+
+Just enough to be useful.
+
+Step 3 - Think about the user
+
+Who's holding the scanner?
+
+Is it:
+
+Warehouse operative?
+Goods-in?
+Picker?
+Supervisor?
+
+Just choose one. Trying to support everyone at once usually makes the first version much harder.
+
+Step 4 - Imagine using it
+
+Close your eyes and picture someone standing in a warehouse with the scanner.
+
+What is the very first thing they do?
+
+Then what happens?
+
+Then what?
+
+Write those steps down in plain English.
+
+For example (not warehouse specific):
+
+Open program
+
+Login
+
+Choose task
+
+Scan something
+
+Program checks it
+
+Program gives feedback
+
+Repeat
+
+Don't worry about whether the steps are "correct" yet.
+
+Step 5 - Think about the information
+
+Every program is really just storing and changing information.
+
+Ask yourself:
+
+What things exist in my warehouse?
+
+Not classes. Not code.
+
+Just things.
+
+Examples of the sort of thinking (not answers):
+
+people
+products
+locations
+orders
+...
