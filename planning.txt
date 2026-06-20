@@ -1,0 +1,31 @@
+Warehouse App
+V1.0 - Pallet Locations
+
+The user will need to login to the system
+The user will enter their password
+The system will display an option screen
+
+The user should be able to scan a received purchase order into an available location in the warehouse
+The user should be able to enter a location and check what purchase order is in that location
+The user should be able to move a purchase order from one location to another
+The system should not let someone move goods to a location that is full (raise error)
+The system should suggest the next abvailable location
+
+
+ASSUMPTIONS
+No goods for now, just PO numbers to get
+Assume the warehouse is laid out in a logical order
+
+#store po's in dictionary [(location, po)]
+LOCATION IS THE MASTER
+
+# view po's
+    #view all po's
+    #view po's not in location
+    #view po's in locations
+
+# view locations  
+    what po is in a location
+    empty locations
+    full locations
+
