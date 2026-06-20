@@ -1,6 +1,9 @@
 from purchase_order import po_list
 from warehouse_location import warehouse_locations
 
+main_menu_select = 0
+
+
 def main_menu():
     print("WAREHOUSE MANAGEMENT APP")
     print("--------------------")
@@ -30,16 +33,28 @@ def store_loc_menu():
     print("--------------------")
     print("Enter your selection: ")
 
+def menu_selection():
+    main_menu_selection = input()
+    
+    if main_menu_selection != "1" or main_menu_selection != "2":
+        print("Incorrect number entered.")
+        main_menu()
+
+    if main_menu_selection == "1":
+        po_menu()
+        po_menu_selection= input()
+
+    if main_menu_selection == "2":
+        store_loc_menu()
+        store_loc_menu_selection = input()
+
 
 def main():
-    main_menu_selection = input().lower()
+
 
     main_menu()
-    po_menu()
-    store_loc_menu()
-
-
-    #raise exception - incorrect entry - ??? is this correct?
+    menu_selection()
+    
 
     
     #for location in warehouse_locations:
@@ -47,7 +62,7 @@ def main():
 
     #for po in po_list:
         #print(po)
-
+    
 
 
 main()
