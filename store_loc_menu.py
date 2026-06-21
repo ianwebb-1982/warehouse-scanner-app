@@ -35,12 +35,27 @@ def loc_assign_menu():
         pos_in_location.append(po_to_assign)
         store_locations.remove(store_loc_to_assign)
         
-        '''
+        
         print(full_locations)
         print(po_list)
         print(pos_in_location)
         print(store_locations)
-        '''
+        
+
+def view_full_locations():
+    print("--------------------")
+    print("VIEW FULL LOCATIONS")
+    print("--------------------")
+    print(full_locations)
+    for location in full_locations:
+        print(location)
+
+def view_empty_locations():
+    print("--------------------")
+    print("VIEW EMPTY LOCATIONS")
+    print("--------------------")
+    for location in store_locations:
+        print(location)
 
 
 def store_loc_menu_selection():
@@ -48,6 +63,12 @@ def store_loc_menu_selection():
 
     if store_loc_menu_selection == "1":
         loc_assign_menu()
+    
+    if store_loc_menu_selection == "2":
+        view_full_locations()
+
+    if store_loc_menu_selection == "3":
+        view_empty_locations()
 
 
     
