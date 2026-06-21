@@ -23,7 +23,6 @@ po_list = [12345,
 #to store PO's that are already in a location
 pos_in_location = []
 
-#store po's in tuple [(po, location)]
 
 # view po's
     #view all po's
