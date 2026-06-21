@@ -1,8 +1,7 @@
 from purchase_order import po_list
-from warehouse_location import warehouse_locations
+from store_location import store_locations
 from main_menu import main_menu, main_menu_selection
 
-main_menu_select = 0
 
 
 def main():
