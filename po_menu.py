@@ -23,8 +23,7 @@ def show_purchase_order_loc():
     print("PURCHASE ORDER LOCATION MENU")
     print("--------------------")
     print("Enter your purchase order number: ")
-    entered_po = input()
+    entered_po = int(float(input()))
 
-    return print(list(full_locations.keys())[list(full_locations.values()).index(entered_po)])
+    return entered_po
 
-    #FIX RETURN LOGIC

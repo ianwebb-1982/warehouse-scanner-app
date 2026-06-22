@@ -14,7 +14,18 @@ def handle_po_menu():
         handle_menu_return()
 
     if po_menu_selection == "2":
-        show_purchase_order_loc()
+        handle_show_full_locations()
+
+
+
+def handle_show_full_locations():
+    full_po = show_purchase_order_loc()
+
+    if full_po in full_locations.values():
+
+        keys = [key for key, val in full_locations.items() if val == full_po]
+        print(keys)
+    handle_menu_return()
 
 
 def handle_store_loc_menu():
@@ -32,6 +43,7 @@ def handle_store_loc_menu():
         handle_menu_return()
 
 
+
 def handle_menu_return():
     menu_return_selection = menu_return()
     if menu_return_selection == "1":
@@ -39,6 +51,7 @@ def handle_menu_return():
 
     if menu_return_selection == "x":
         exit()
+
 
 
 def handle_loc_assign():
@@ -53,12 +66,6 @@ def handle_loc_assign():
         pos_in_location.append(loc_po_to_assign[1])
         store_locations.remove(loc_po_to_assign[0])
         
-    """
-        print(full_locations)
-        print(po_list)
-        print(pos_in_location)
-        print(store_locations)"""
-
 
 def handle_view_full_locations():
     print("--------------------")
@@ -70,15 +77,17 @@ def handle_view_full_locations():
     handle_menu_return()
 
 
+
 def handle_view_empty_locations():
     print("--------------------")
     print("VIEW EMPTY LOCATIONS")
     print("--------------------")
-    
+
     for location in store_locations:
         print(location)
     handle_menu_return()
     
+
 
 def main():
     while True:
