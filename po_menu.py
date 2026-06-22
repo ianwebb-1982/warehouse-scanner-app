@@ -1,5 +1,6 @@
 from purchase_order import po_list
 from store_location import full_locations
+from menu_return_options import menu_return
 
 
 def po_main_menu():
@@ -23,6 +24,8 @@ def po_menu_selection():
     if po_menu_selection == "2":
         show_purchase_order_loc()
 
+    menu_return()
+
 def show_purchase_order_loc():
     '''
     mydict = {'george': 16, 'amber': 19}
@@ -30,4 +33,6 @@ def show_purchase_order_loc():
     '''
     entered_po = input()
 
-    print(list(full_locations.keys())[list(full_locations()).index(entered_po)])
+    print(list(full_locations.keys())[list(full_locations.values()).index(entered_po)])
+
+    menu_return()

@@ -1,5 +1,6 @@
 from store_location import store_locations, full_locations
 from purchase_order import po_list, pos_in_location
+from menu_return_options import menu_return
 
 def store_loc_main_menu():
     print("--------------------")
@@ -12,6 +13,18 @@ def store_loc_main_menu():
     print("--------------------")
     print("Enter your selection: ")
     store_loc_menu_selection()
+
+def store_loc_menu_selection():
+    store_loc_menu_selection = input()
+
+    if store_loc_menu_selection == "1":
+        loc_assign_menu()
+    
+    if store_loc_menu_selection == "2":
+        view_full_locations()
+
+    if store_loc_menu_selection == "3":
+        view_empty_locations()
 
 
 def loc_assign_menu():
@@ -49,6 +62,12 @@ def view_full_locations():
     print(full_locations)
     for location in full_locations:
         print(location)
+    menu_return()
+    if menu_return == "1":
+        main_menu()
+    if menu_return == "0":
+        exit()
+
 
 def view_empty_locations():
     print("--------------------")
@@ -56,19 +75,15 @@ def view_empty_locations():
     print("--------------------")
     for location in store_locations:
         print(location)
+    menu_return()
+    if menu_return == "1":
+        main_menu()
+    if menu_return == "0":
+        exit()
 
 
-def store_loc_menu_selection():
-    store_loc_menu_selection = input()
 
-    if store_loc_menu_selection == "1":
-        loc_assign_menu()
-    
-    if store_loc_menu_selection == "2":
-        view_full_locations()
 
-    if store_loc_menu_selection == "3":
-        view_empty_locations()
 
 
     
