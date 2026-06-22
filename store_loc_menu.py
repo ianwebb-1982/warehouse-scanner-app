@@ -12,19 +12,11 @@ def store_loc_main_menu():
     print("3 - View empty Store locations")
     print("--------------------")
     print("Enter your selection: ")
-    store_loc_menu_selection()
-
-def store_loc_menu_selection():
     store_loc_menu_selection = input()
+    return store_loc_menu_selection
 
-    if store_loc_menu_selection == "1":
-        loc_assign_menu()
-    
-    if store_loc_menu_selection == "2":
-        view_full_locations()
 
-    if store_loc_menu_selection == "3":
-        view_empty_locations()
+
 
 
 def loc_assign_menu():
