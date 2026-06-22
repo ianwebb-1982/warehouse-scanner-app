@@ -1,6 +1,6 @@
 from store_location import store_locations, full_locations
 from purchase_order import po_list, pos_in_location
-from menu_return_options import menu_return
+
 
 def store_loc_main_menu():
     print("--------------------")
@@ -15,10 +15,6 @@ def store_loc_main_menu():
     store_loc_menu_selection = input()
     return store_loc_menu_selection
 
-
-
-
-
 def loc_assign_menu():
     print("--------------------")
     print("STORE LOCATIION ASSIGNMENT MENU")
@@ -32,46 +28,14 @@ def loc_assign_menu():
     print("(e.g. - 12345)")
 
     po_to_assign = int(float(input()))
+    return store_loc_to_assign, po_to_assign
 
-    if store_loc_to_assign in store_locations and po_to_assign in po_list:
-        print("PO added to location")
-        full_locations.update({store_loc_to_assign: po_to_assign})
-        po_list.remove(po_to_assign)
-        pos_in_location.append(po_to_assign)
-        store_locations.remove(store_loc_to_assign)
-        
-        
-        print(full_locations)
-        print(po_list)
-        print(pos_in_location)
-        print(store_locations)
-        
-
-def view_full_locations():
-    print("--------------------")
-    print("VIEW FULL LOCATIONS")
-    print("--------------------")
-    print(full_locations)
-    for location in full_locations:
-        print(location)
-    menu_return()
-    if menu_return == "1":
-        main_menu()
-    if menu_return == "0":
-        exit()
+def loc_assign_test_menu():
+    pass
 
 
-def view_empty_locations():
-    print("--------------------")
-    print("VIEW EMPTY LOCATIONS")
-    print("--------------------")
-    for location in store_locations:
-        print(location)
-    menu_return()
-    if menu_return == "1":
-        main_menu()
-    if menu_return == "0":
-        exit()
+
+
 
 
 
