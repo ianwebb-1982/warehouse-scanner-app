@@ -12,6 +12,7 @@ def po_main_menu():
     print("--------------------")
     print("Enter your selection: ")
     po_menu_selection = input()
+    
     return po_menu_selection
   
 
