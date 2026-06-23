@@ -26,10 +26,17 @@ def handle_po_menu():
     po_menu_selection = po_main_menu()
     if po_menu_selection == "1":
         handle_show_pos()
-
-    if po_menu_selection == "2":
+    elif po_menu_selection == "2":
         handle_show_full_locations()
         handle_menu_return()
+    elif po_menu_selection == "m":
+        return
+    else:
+        clear_screen()
+        print("Enter Correct Choice")
+        handle_po_menu()
+
+
 
 def handle_show_pos():
         clear_screen()
@@ -58,14 +65,18 @@ def handle_store_loc_menu():
     if store_loc_menu_selection == "1":
         handle_loc_assign()
         handle_menu_return()
-    
-    if store_loc_menu_selection == "2":
+    elif store_loc_menu_selection == "2":
         handle_view_full_locations()
         handle_menu_return()
-
-    if store_loc_menu_selection == "3":
+    elif store_loc_menu_selection == "3":
         handle_view_empty_locations()
         handle_menu_return()
+    elif store_loc_menu_selection == "m":
+        return
+    else:
+        clear_screen()
+        print("Enter Correct Choice")
+        handle_store_loc_menu()
 
 # Store location option 1
 def handle_loc_assign():
@@ -113,13 +124,16 @@ def main():
         if main_menu_select == "1":
             clear_screen()
             handle_po_menu()
-
-        if main_menu_select == "2":
+        elif main_menu_select == "2":
             clear_screen()
             handle_store_loc_menu()
-
-        if main_menu_select == "x":
+        elif main_menu_select == "x":
             exit()
+        else:
+            clear_screen()
+            print("Enter Correct Choice")
+            
+            
 
 
 main()

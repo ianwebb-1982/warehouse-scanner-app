@@ -9,10 +9,11 @@ def store_loc_main_menu():
     print("Menu:")
     print("1 - Assign PO to Store Location")
     print("2 - View full locations and assigned Purchase Orders")
-    print("3 - View empty Store locations")
+    print("3 - View empty Store Locations")
+    print("M - Return to Main Menu")
     print("--------------------")
     print("Enter your selection: ")
-    store_loc_menu_selection = input()
+    store_loc_menu_selection = input().lower()
     return store_loc_menu_selection
 
 def loc_assign_menu():
