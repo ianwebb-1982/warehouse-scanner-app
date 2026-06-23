@@ -12,15 +12,11 @@ def po_main_menu():
     print("--------------------")
     print("Enter your selection: ")
     po_menu_selection = input()
-    
+
     return po_menu_selection
   
 
 def show_purchase_order_loc():
-    '''
-    mydict = {'george': 16, 'amber': 19}
-    print(list(mydict.keys())[list(mydict.values()).index(16)])  # Prints george
-    '''
     print("PURCHASE ORDER LOCATION MENU")
     print("--------------------")
     print("Enter your purchase order number: ")

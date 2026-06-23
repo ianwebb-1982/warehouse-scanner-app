@@ -4,6 +4,7 @@ from main_menu_options import main_menu
 from po_menu import po_main_menu, show_purchase_order_loc
 from store_loc_menu import store_loc_main_menu, loc_assign_menu
 from menu_return_options import menu_return
+import os
 
 #######
 # Menu return logic
@@ -14,22 +15,34 @@ def handle_menu_return():
 
     if menu_return_selection == "x":
         exit()
-        
+
+# Clear screen function
+def clear_screen():
+    os.system('cls' if os.name == 'nt' else 'clear')
 
 #######
 # PO Menus
 def handle_po_menu():
     po_menu_selection = po_main_menu()
     if po_menu_selection == "1":
-        for po in po_list:
-            print(po)
-        handle_menu_return()
+        handle_show_pos()
 
     if po_menu_selection == "2":
         handle_show_full_locations()
         handle_menu_return()
 
+def handle_show_pos():
+        clear_screen()
+        print("---------------")
+        print("Available Purchase Orders")
+        print("---------------")
+
+        for po in po_list:
+            print(po)
+        handle_menu_return()
+
 def handle_show_full_locations():
+    clear_screen()
     full_po = show_purchase_order_loc()
 
     if full_po in full_locations.values():
@@ -56,9 +69,10 @@ def handle_store_loc_menu():
 
 # Store location option 1
 def handle_loc_assign():
+    clear_screen()
     loc_po_to_assign: tuple = loc_assign_menu() 
-    print(loc_po_to_assign[0])
-    print(loc_po_to_assign[1])
+    #print(loc_po_to_assign[0]) #Test print
+    #print(loc_po_to_assign[1]) #test print
 
     if loc_po_to_assign[0] in store_locations and loc_po_to_assign[1] in po_list:
         print("PO added to location")
@@ -69,6 +83,7 @@ def handle_loc_assign():
         
 # Store location option 2
 def handle_view_full_locations():
+    clear_screen()
     print("--------------------")
     print("VIEW FULL LOCATIONS")
     print("--------------------")
@@ -79,6 +94,7 @@ def handle_view_full_locations():
 
 # Store location option 3
 def handle_view_empty_locations():
+    clear_screen()
     print("--------------------")
     print("VIEW EMPTY LOCATIONS")
     print("--------------------")
@@ -91,12 +107,15 @@ def handle_view_empty_locations():
 def main():
     while True:
         #Main menu
+        clear_screen()
         main_menu_select = main_menu()
 
         if main_menu_select == "1":
+            clear_screen()
             handle_po_menu()
 
         if main_menu_select == "2":
+            clear_screen()
             handle_store_loc_menu()
 
         if main_menu_select == "x":
