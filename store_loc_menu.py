@@ -16,7 +16,7 @@ def store_loc_main_menu():
     store_loc_menu_selection = input().lower()
     return store_loc_menu_selection
 
-def loc_assign_menu():
+def loc_assign_menu_loc():
     print("--------------------")
     print("STORE LOCATIION ASSIGNMENT MENU")
     print("--------------------")
@@ -24,12 +24,14 @@ def loc_assign_menu():
     print("(e.g. - A001-B001-S001)")
     
     store_loc_to_assign = input().upper()
+    return store_loc_to_assign
 
+def loc_assign_menu_po():
     print("Enter PO number:")
     print("(e.g. - 12345)")
 
     po_to_assign = int(float(input()))
-    return store_loc_to_assign, po_to_assign
+    return po_to_assign
 
 def loc_assign_test_menu():
     pass

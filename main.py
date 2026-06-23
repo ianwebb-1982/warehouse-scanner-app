@@ -2,9 +2,11 @@ from purchase_order import po_list, pos_in_location
 from store_location import store_locations, full_locations
 from main_menu_options import main_menu
 from po_menu import po_main_menu, show_purchase_order_loc
-from store_loc_menu import store_loc_main_menu, loc_assign_menu
+from store_loc_menu import store_loc_main_menu, loc_assign_menu_loc, loc_assign_menu_po
 from menu_return_options import menu_return
 import os
+
+
 
 #######
 # Menu return logic
@@ -55,7 +57,7 @@ def handle_show_full_locations():
     if full_po in full_locations.values():
 
         keys = [key for key, val in full_locations.items() if val == full_po]
-        print(keys)
+        print(f"Purchase Order {full_po} is in location {keys}")
 
 
 ######
@@ -81,27 +83,41 @@ def handle_store_loc_menu():
 # Store location option 1
 def handle_loc_assign():
     clear_screen()
-    loc_po_to_assign: tuple = loc_assign_menu() 
-    #print(loc_po_to_assign[0]) #Test print
-    #print(loc_po_to_assign[1]) #test print
+    assign_loc = loc_assign_menu_loc() 
+    
+  
+    if assign_loc in store_locations:
+        loc_to_assign = assign_loc
+        store_locations.remove(loc_to_assign)
+    else:
+        clear_screen()
+        print("Enter correct Store Location")
+        handle_loc_assign()
 
-    if loc_po_to_assign[0] in store_locations and loc_po_to_assign[1] in po_list:
-        print("PO added to location")
-        full_locations.update({loc_po_to_assign[0]: loc_po_to_assign[1]})
-        po_list.remove(loc_po_to_assign[1])
-        pos_in_location.append(loc_po_to_assign[1])
-        store_locations.remove(loc_po_to_assign[0])
-        
+    assign_po = loc_assign_menu_po()
+
+    if assign_po in po_list:
+        po_to_assign = assign_po
+        po_list.remove(po_to_assign)
+        pos_in_location.append(po_to_assign)
+    else:
+        clear_screen()
+        print("Enter correct Purchase Order")
+        #handle_loc_assign()
+        handle_loc_assign()
+
+    full_locations.update({loc_to_assign: po_to_assign})
+ 
+
 # Store location option 2
 def handle_view_full_locations():
     clear_screen()
     print("--------------------")
     print("VIEW FULL LOCATIONS")
     print("--------------------")
-    
-    for location in full_locations:
-        for order in full_locations.values():
-            print(f"Location {location}: Order {order}")
+
+    for key, val in full_locations.items():
+        print(f"Location {key}: Order {val}")
 
 # Store location option 3
 def handle_view_empty_locations():
@@ -112,6 +128,7 @@ def handle_view_empty_locations():
 
     for location in store_locations:
         print(location)
+        
   
     
 ######
@@ -132,8 +149,5 @@ def main():
         else:
             clear_screen()
             print("Enter Correct Choice")
-            
-            
-
 
 main()
