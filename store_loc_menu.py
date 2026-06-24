@@ -30,7 +30,7 @@ def loc_assign_menu_po():
     print("Enter PO number:")
     print("(e.g. - 12345)")
 
-    po_to_assign = int(float(input()))
+    po_to_assign = input()
     return po_to_assign
 
 def loc_assign_test_menu():

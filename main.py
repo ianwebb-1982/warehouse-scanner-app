@@ -6,8 +6,6 @@ from store_loc_menu import store_loc_main_menu, loc_assign_menu_loc, loc_assign_
 from menu_return_options import menu_return
 import os
 
-
-
 #######
 # Menu return logic
 def handle_menu_return():
@@ -37,8 +35,6 @@ def handle_po_menu():
         clear_screen()
         print("Enter Correct Choice")
         handle_po_menu()
-
-
 
 def handle_show_pos():
         clear_screen()
@@ -82,31 +78,34 @@ def handle_store_loc_menu():
 
 # Store location option 1
 def handle_loc_assign():
-    clear_screen()
-    assign_loc = loc_assign_menu_loc() 
-    
-  
-    if assign_loc in store_locations:
-        loc_to_assign = assign_loc
-        store_locations.remove(loc_to_assign)
-    else:
+    loc_done = False
+    while not loc_done:
         clear_screen()
-        print("Enter correct Store Location")
-        handle_loc_assign()
+        assign_loc = loc_assign_menu_loc()
 
-    assign_po = loc_assign_menu_po()
-
-    if assign_po in po_list:
-        po_to_assign = assign_po
-        po_list.remove(po_to_assign)
-        pos_in_location.append(po_to_assign)
-    else:
+        if assign_loc in store_locations:
+            clear_screen()
+            store_locations.remove(assign_loc)
+            loc_done = True
+        else:
+            clear_screen()
+            pass
+            
+    po_done = False
+    while not po_done:
         clear_screen()
-        print("Enter correct Purchase Order")
-        #handle_loc_assign()
-        handle_loc_assign()
+        assign_po = loc_assign_menu_po()
 
-    full_locations.update({loc_to_assign: po_to_assign})
+        if int(float(assign_po)) in po_list:
+            clear_screen()
+            po_list.remove(int(float(assign_po)))
+            pos_in_location.append(int(float(assign_po)))
+            po_done = True
+        else:
+            clear_screen()
+            pass
+
+    full_locations.update({assign_loc: assign_po})
  
 
 # Store location option 2
